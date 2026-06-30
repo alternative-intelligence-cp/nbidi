@@ -1,0 +1,24 @@
+use "../src/bidi.npk".*;
+
+pub func:failsafe = int32(tbb32:err) { exit(1i32); };
+
+pub func:main = int32() {
+    int32:len = 5i32;
+    int8->:text = cast_unchecked<int8->>(0i64);
+    
+    Result<TextRun>:res = resolve_bidi_english(text, len);
+    if (res.is_error) {
+        exit(2i32);
+    }
+    
+    TextRun:run = res.value;
+    if (run.start_index != 0i32) {
+        exit(3i32);
+    } else if (run.length != 5i32) {
+        exit(4i32);
+    } else if (run.direction != 0i32) {
+        exit(5i32);
+    }
+    
+    exit(0i32);
+};

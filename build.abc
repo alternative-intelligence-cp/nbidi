@@ -1,0 +1,9 @@
+[project]
+name = "nbidi"
+version = "0.1.0"
+
+[target.main]
+type = "library"
+sources = ["src/*.npk"]
+deps = []
+flags = ["-O2", "--verify"]

@@ -1,0 +1,6 @@
+*.npkbin
+*.o
+*.a
+*.so
+build/
+.npk_cache/

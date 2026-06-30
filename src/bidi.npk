@@ -1,0 +1,25 @@
+pub enum:TextDirection = { 
+    LTR = 0, 
+    RTL = 1 
+};
+
+pub struct:TextRun = {
+    int32:start_index;
+    int32:length;
+    int32:direction;
+};
+
+// Returns a single LTR run for the entire text sequence, assuming English-only basic strings.
+pub func:resolve_bidi_english = TextRun(int8->:text, int32:len) {
+    if (len <= 0i32) {
+        fail(-1i32);
+    }
+    
+    TextRun:run = { 
+        start_index: 0i32, 
+        length: len, 
+        direction: 0i32 
+    };
+    
+    pass(run);
+};
